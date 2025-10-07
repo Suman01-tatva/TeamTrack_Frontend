@@ -1,0 +1,94 @@
+import React from "react";
+import InputField from "./textBox/TextBox";
+import CustomCheckbox from "./checkbox/Checkbox";
+import ToggleSwitch from "./toggleSwitch/ToggleSwitch";
+import DatePickerField from "./datePicker/DatePicker";
+import DropdownField from "./dropdown/Dropdown";
+import MultiSelectDropdown from "./dropdown/MultiselectDropdown";
+
+import type { InputFieldProps } from "./textBox/types";
+import type { CheckboxProps } from "./checkbox/types";
+import type { ToggleSwitchProps } from "./toggleSwitch/types";
+import type { DatePickerFieldProps } from "./datePicker/types";
+import type {
+  DropdownFieldProps,
+  MultiSelectDropdownProps,
+} from "./dropdown/types";
+import type { FormControlConfig } from "../../types/commonTypes";
+import RadioGroupField from "./radioGroup/RadioGroup";
+import type { RadioGroupFieldProps } from "./radioGroup/types";
+import TextAreaField from "./textArea/TextArea";
+import type { TextareaFieldProps } from "./textArea/types";
+import Button from "../button/Button";
+import type { ButtonProps } from "../button/types";
+
+const FormControl: React.FC<{ formControllConfig: FormControlConfig }> = ({
+  formControllConfig,
+}) => {
+  switch (formControllConfig.type) {
+    case "input":
+      return (
+        <InputField
+          inputConfig={formControllConfig.config as InputFieldProps}
+        />
+      );
+
+    case "checkbox":
+      return (
+        <CustomCheckbox
+          checkBoxConfig={formControllConfig.config as CheckboxProps}
+        />
+      );
+
+    case "toggle":
+      return (
+        <ToggleSwitch
+          switchConfig={formControllConfig.config as ToggleSwitchProps}
+        />
+      );
+
+    case "date":
+      return (
+        <DatePickerField
+          dateConfig={formControllConfig.config as DatePickerFieldProps}
+        />
+      );
+
+    case "dropdown":
+      return (
+        <DropdownField
+          dropDownConfig={formControllConfig.config as DropdownFieldProps}
+        />
+      );
+
+    case "multiselect":
+      return (
+        <MultiSelectDropdown
+          multiSelectDropdownConfig={
+            formControllConfig.config as MultiSelectDropdownProps
+          }
+        />
+      );
+
+    case "textarea":
+      return (
+        <TextAreaField
+          textareaConfig={formControllConfig.config as TextareaFieldProps}
+        />
+      );
+
+    case "radio":
+      return (
+        <RadioGroupField
+          radioConfig={formControllConfig.config as RadioGroupFieldProps}
+        />
+      );
+
+    case "button":
+      return <Button buttonConfig={formControllConfig.config as ButtonProps} />;
+    default:
+      return null;
+  }
+};
+
+export default FormControl;

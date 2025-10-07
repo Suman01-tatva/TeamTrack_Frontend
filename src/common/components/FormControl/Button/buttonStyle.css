@@ -1,0 +1,19 @@
+.cancel-btn {
+  background-color: var(--colorLight)!important;
+  color: var(--colorDarkGrey)!important;
+}
+
+.cancel-btn:hover {
+  background-color: var(--colorDarkGrey)!important;
+  color: var(--colorLight)!important;
+}
+
+.submit-btn {
+  background-color: var(--colorDarkGrey)!important;
+  color: var(--colorLight)!important;
+}
+
+.submit-btn:hover {
+  background-color: var(--colorDark)!important;
+  color: var(--colorLight)!important;
+}
