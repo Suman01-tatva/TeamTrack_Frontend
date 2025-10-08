@@ -7,6 +7,7 @@ import Home from '../features/home/Home'
 import PageNotFound from '../features/home/PageNotFound'
 import RegisterOrganization from '../features/auth/pages/RegisterOrganization'
 import { UserRegisterForm } from '../features/auth/components/UserRegisterForm'
+import Dashboard from '../features/home/Dashboard'
 
 function AppRoutes() {
     return (
@@ -17,7 +18,7 @@ function AppRoutes() {
                 <Route path="/user-register" element={<UserRegisterForm />} />
             </Route>
             <Route element={<ProtectedRoute />}>
-                {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+                <Route path="/dashboard" element={<Dashboard />} />
             </Route>
             <Route path="/" element={<Home />} />
             <Route path="*" element={<PageNotFound />} />
