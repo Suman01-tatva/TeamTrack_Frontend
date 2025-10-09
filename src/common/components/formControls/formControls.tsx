@@ -22,42 +22,42 @@ import type { TextareaFieldProps } from "./textArea/types";
 import Button from "../button/Button";
 import type { ButtonProps } from "../button/types";
 
-const FormControl: React.FC<{ formControllConfig: FormControlConfig }> = ({
-  formControllConfig,
+const FormControl: React.FC<{ formControlConfig: FormControlConfig }> = ({
+  formControlConfig: formControlConfig,
 }) => {
-  switch (formControllConfig.type) {
+  switch (formControlConfig.type) {
     case "input":
       return (
         <InputField
-          inputConfig={formControllConfig.config as InputFieldProps}
+          inputConfig={formControlConfig.config as InputFieldProps}
         />
       );
 
     case "checkbox":
       return (
         <CustomCheckbox
-          checkBoxConfig={formControllConfig.config as CheckboxProps}
+          checkBoxConfig={formControlConfig.config as CheckboxProps}
         />
       );
 
     case "toggle":
       return (
         <ToggleSwitch
-          switchConfig={formControllConfig.config as ToggleSwitchProps}
+          switchConfig={formControlConfig.config as ToggleSwitchProps}
         />
       );
 
     case "date":
       return (
         <DatePickerField
-          dateConfig={formControllConfig.config as DatePickerFieldProps}
+          dateConfig={formControlConfig.config as DatePickerFieldProps}
         />
       );
 
     case "dropdown":
       return (
         <DropdownField
-          dropDownConfig={formControllConfig.config as DropdownFieldProps}
+          dropDownConfig={formControlConfig.config as DropdownFieldProps}
         />
       );
 
@@ -65,7 +65,7 @@ const FormControl: React.FC<{ formControllConfig: FormControlConfig }> = ({
       return (
         <MultiSelectDropdown
           multiSelectDropdownConfig={
-            formControllConfig.config as MultiSelectDropdownProps
+            formControlConfig.config as MultiSelectDropdownProps
           }
         />
       );
@@ -73,19 +73,19 @@ const FormControl: React.FC<{ formControllConfig: FormControlConfig }> = ({
     case "textarea":
       return (
         <TextAreaField
-          textareaConfig={formControllConfig.config as TextareaFieldProps}
+          textareaConfig={formControlConfig.config as TextareaFieldProps}
         />
       );
 
     case "radio":
       return (
         <RadioGroupField
-          radioConfig={formControllConfig.config as RadioGroupFieldProps}
+          radioConfig={formControlConfig.config as RadioGroupFieldProps}
         />
       );
 
     case "button":
-      return <Button buttonConfig={formControllConfig.config as ButtonProps} />;
+      return <Button buttonConfig={formControlConfig.config as ButtonProps} />;
     default:
       return null;
   }

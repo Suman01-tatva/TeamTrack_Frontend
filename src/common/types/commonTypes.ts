@@ -1,12 +1,12 @@
-import type { CheckboxProps } from "../components/formControlls/checkbox/types";
-import type { DatePickerFieldProps } from "../components/formControlls/datePicker/types";
+import type { CheckboxProps } from "../components/formControls/checkbox/types";
+import type { DatePickerFieldProps } from "../components/formControls/datePicker/types";
 import type {
   DropdownFieldProps,
   MultiSelectDropdownProps,
-} from "../components/formControlls/dropdown/types";
-import type { RadioGroupFieldProps } from "../components/formControlls/radioGroup/types";
-import type { TextareaFieldProps } from "../components/formControlls/textArea/types";
-import type { ToggleSwitchProps } from "../components/formControlls/toggleSwitch/types";
+} from "../components/formControls/dropdown/types";
+import type { RadioGroupFieldProps } from "../components/formControls/radioGroup/types";
+import type { TextareaFieldProps } from "../components/formControls/textArea/types";
+import type { ToggleSwitchProps } from "../components/formControls/toggleSwitch/types";
 import { type ButtonProps } from "../components/button/types";
 
 export interface InputFieldProps extends CommonFieldProps {

@@ -4,6 +4,7 @@ export const OrgRegisterSchema = Yup.object().shape({
   name: Yup.string().max(50, "Name must be at most 50 characters").required("Name is required"),
   email: Yup.string().email("Invalid email").max(100, "Email must be at most 100 characters").required("Email is required"),
   password: Yup.string().max(100, "Password must be at most 100 characters").required("Password is required"),
+  role: Yup.string()
 });
 
 export const UserRegisterSchema = Yup.object().shape({

@@ -1,9 +1,9 @@
 import "../../../common/components/FormControl/Button/buttonStyle.css";
 import { LoginSchema } from "../schema/loginSchema";
 import type { LoginFormProps } from "../types/LoginTypes";
-import { GetButtonConfig, GetCheckBoxConfig, GetInputFieldConfig } from "../../../common/utills/formControllConfig";
+import { GetButtonConfig, GetCheckBoxConfig, GetInputFieldConfig } from "../../../common/utils/formControlConfig";
 import { Form, Formik } from "formik";
-import FormControl from "../../../common/components/formControlls/formControlls";
+import FormControl from "../../../common/components/formControls/formControls";
 
 export const LoginForm: React.FC<LoginFormProps> = ({ onSubmit }) => {
   const initialValues = {
@@ -33,45 +33,45 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onSubmit }) => {
         {({ handleSubmit: formikHandleSubmit }) => (
           <Form onSubmit={formikHandleSubmit} className="space-y-5">
             <div>
-              <FormControl 
-                formControllConfig={{ 
-                  type: "input", 
-                  config: GetInputFieldConfig("email", "email", "email", "Email Address") 
-                }} 
+              <FormControl
+                formControlConfig={{
+                  type: "input",
+                  config: GetInputFieldConfig("email", "email", "email", "Email Address")
+                }}
               />
             </div>
 
             <div>
-              <FormControl 
-                formControllConfig={{ 
-                  type: "input", 
-                  config: GetInputFieldConfig("password", "password", "password", "Password") 
-                }} 
+              <FormControl
+                formControlConfig={{
+                  type: "input",
+                  config: GetInputFieldConfig("password", "password", "password", "Password")
+                }}
               />
             </div>
 
             <div className="flex items-center justify-between gap-4">
               <div className="flex items-center">
-                <FormControl 
-                  formControllConfig={{ 
-                    type: "checkbox", 
-                    config: GetCheckBoxConfig("rememberMe", "Remember Me") 
-                  }} 
+                <FormControl
+                  formControlConfig={{
+                    type: "checkbox",
+                    config: GetCheckBoxConfig("rememberMe", "Remember Me")
+                  }}
                 />
               </div>
               <div className="flex items-center">
-                <FormControl 
-                  formControllConfig={{ 
-                    type: "checkbox", 
-                    config: GetCheckBoxConfig("isOrganization", "Organization Account") 
-                  }} 
+                <FormControl
+                  formControlConfig={{
+                    type: "checkbox",
+                    config: GetCheckBoxConfig("isOrganization", "Organization Account")
+                  }}
                 />
               </div>
             </div>
 
             <div className="text-right">
-              <a 
-                href="/forgot-password" 
+              <a
+                href="/forgot-password"
                 className="text-sm font-medium text-blue-600 hover:text-blue-500 transition-colors"
               >
                 Forgot Password?
@@ -79,11 +79,11 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onSubmit }) => {
             </div>
 
             <div className="pt-2">
-              <FormControl 
-                formControllConfig={{ 
-                  type: "button", 
-                  config: GetButtonConfig("submit", "btn-primary w-full py-3 text-base font-semibold", "Sign In", "contained", true) 
-                }} 
+              <FormControl
+                formControlConfig={{
+                  type: "button",
+                  config: GetButtonConfig("submit", "btn-primary w-full py-3 text-base font-semibold", "Sign In", "contained", true)
+                }}
               />
             </div>
           </Form>
@@ -104,7 +104,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onSubmit }) => {
       </div>
 
       <div>
-        <button 
+        <button
           type="button"
           className="w-full flex items-center justify-center px-4 py-3 border-2 border-gray-300 rounded-lg hover:bg-gray-50 hover:border-gray-400 transition-all duration-200 shadow-sm hover:shadow"
         >
@@ -136,22 +136,22 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onSubmit }) => {
         <p className="text-gray-600 mb-3">Don't have an account?</p>
         <div className="flex items-center justify-center gap-2 text-sm">
           <span className="text-gray-600">Register as</span>
-          <a 
-            href="/org-register" 
+          <a
+            href="/org-register"
             className="font-semibold text-blue-600 hover:text-blue-700 hover:underline transition-colors"
           >
             Organization
           </a>
           <span className="text-gray-400">|</span>
-          <a 
-            href="/user-register" 
+          <a
+            href="/user-register"
             className="font-semibold text-blue-600 hover:text-blue-700 hover:underline transition-colors"
           >
             Individual User
           </a>
         </div>
       </div>
-    
+
     </div>
   );
 }

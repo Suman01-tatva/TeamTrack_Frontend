@@ -10,7 +10,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import type { PopUpModalProps } from "./types";
 import type { ButtonProps } from "../button/types";
 import Button from "../button/Button";
-import { GetButtonConfig } from "../../utills/formControllConfig";
+import { GetButtonConfig } from "../../utils/formControlConfig";
 
 const PopUpModal: React.FC<{ popUpModalConfig: PopUpModalProps }> = ({
   popUpModalConfig,

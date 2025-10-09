@@ -1,5 +1,5 @@
 import { Formik, Form } from "formik";
-import FormControl from "../formControlls/formControlls";
+import FormControl from "../formControls/formControls";
 import type { DynamicFormModalProps } from "./types/type";
 import {
   Dialog,
@@ -12,7 +12,7 @@ import {
 import CloseIcon from "@mui/icons-material/Close";
 import type { ButtonProps } from "../button/types";
 import Button from "../button/Button";
-import { GetButtonConfig } from "../../utills/formControllConfig";
+import { GetButtonConfig } from "../../utils/formControlConfig";
 
 const DynamicFormModal = <T extends object>({
   isOpen,
@@ -89,7 +89,7 @@ const DynamicFormModal = <T extends object>({
             <DialogContent dividers>
               {formConfig.map((item, index) => (
                 <div key={index} className={`my-2 ${item.className || ""}`}>
-                  <FormControl formControllConfig={item} />
+                  <FormControl formControlConfig={item} />
                 </div>
               ))}
             </DialogContent>

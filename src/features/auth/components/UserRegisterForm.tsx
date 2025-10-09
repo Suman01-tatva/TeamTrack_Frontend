@@ -4,8 +4,8 @@ import { UserRegisterSchema } from "../schema/RegisterSchema";
 import {
   GetButtonConfig,
   GetInputFieldConfig,
-} from "../../../common/utills/formControllConfig";
-import FormControl from "../../../common/components/formControlls/formControlls";
+} from "../../../common/utils/formControlConfig";
+import FormControl from "../../../common/components/formControls/formControls";
 
 export const UserRegisterForm: React.FC = () => {
   const initialValues = {
@@ -41,7 +41,7 @@ export const UserRegisterForm: React.FC = () => {
             {/* Name */}
             <div>
               <FormControl
-                formControllConfig={{
+                formControlConfig={{
                   type: "input",
                   config: GetInputFieldConfig("name", "name", "text", "Full Name"),
                 }}
@@ -51,7 +51,7 @@ export const UserRegisterForm: React.FC = () => {
             {/* Email */}
             <div>
               <FormControl
-                formControllConfig={{
+                formControlConfig={{
                   type: "input",
                   config: GetInputFieldConfig("email", "email", "email", "Email Address"),
                 }}
@@ -61,7 +61,7 @@ export const UserRegisterForm: React.FC = () => {
             {/* Password */}
             <div>
               <FormControl
-                formControllConfig={{
+                formControlConfig={{
                   type: "input",
                   config: GetInputFieldConfig(
                     "password",
@@ -76,7 +76,7 @@ export const UserRegisterForm: React.FC = () => {
             {/* Confirm Password */}
             <div>
               <FormControl
-                formControllConfig={{
+                formControlConfig={{
                   type: "input",
                   config: GetInputFieldConfig(
                     "confirmPassword",
@@ -91,7 +91,7 @@ export const UserRegisterForm: React.FC = () => {
             {/* Submit Button */}
             <div className="pt-2">
               <FormControl
-                formControllConfig={{
+                formControlConfig={{
                   type: "button",
                   config: GetButtonConfig(
                     "submit",

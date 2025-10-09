@@ -4,7 +4,7 @@ import type { GridPaginationModel } from "@mui/x-data-grid";
 import type { GridColDef } from "@mui/x-data-grid";
 import { DataGrid } from "@mui/x-data-grid";
 import type { FormControlConfig } from "../../types/commonTypes";
-import FormControl from "../formControlls/formControlls";
+import FormControl from "../formControls/formControls";
 
 interface ServerDataGridProps<T extends { id: string | number }> {
   columns: GridColDef<T>[];
@@ -40,7 +40,7 @@ export default function CommonDataGrid<T extends { id: string | number }>({
         <div className="flex justify-center items-center gap-2">
           {action?.map((act, index) => (
             <div key={index}>
-              <FormControl formControllConfig={act} />
+              <FormControl formControlConfig={act} />
             </div>
           ))}
         </div>

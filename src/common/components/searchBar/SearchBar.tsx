@@ -1,5 +1,5 @@
 import React from "react";
-import InputField from "../formControlls/textBox/TextBox";
+import InputField from "../formControls/textBox/TextBox";
 import type { SearchBarProps } from "./types";
 
 const SearchBar: React.FC<{ searchBarConfig: SearchBarProps }> = ({

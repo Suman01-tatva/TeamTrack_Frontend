@@ -4,19 +4,33 @@ import { OrgRegisterSchema } from "../schema/RegisterSchema";
 import {
   GetButtonConfig,
   GetInputFieldConfig,
-} from "../../../common/utills/formControllConfig";
-import FormControl from "../../../common/components/formControlls/formControlls";
+} from "../../../common/utils/formControlConfig";
+import FormControl from "../../../common/components/formControls/formControls";
+import type { RegisterOrganizationPayload } from "../types/RegisterTypes";
+import { registerOrganizationThunk } from "../authThunk";
+import type { AppDispatch } from "../../../app/store";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router";
 
 export const OrganizationRegisterForm: React.FC = () => {
-  const initialValues = {
+
+  const dispatch = useDispatch<AppDispatch>();
+    const navigate = useNavigate();
+
+  const initialValues : RegisterOrganizationPayload = {
     name: "",
     email: "",
     password: "",
+    role: 2, // Default role for organization
   };
 
-  const handleSubmit = (values: typeof initialValues) => {
+  const handleSubmit = async (values: RegisterOrganizationPayload)  => {
     console.log("Organization Register Submitted:", values);
     // TODO: call your registration API here
+    const result = await dispatch(registerOrganizationThunk(values));
+    if(registerOrganizationThunk.fulfilled.match(result)){
+        navigate("/login");
+    }
   };
 
   return (
@@ -36,7 +50,7 @@ export const OrganizationRegisterForm: React.FC = () => {
           <Form onSubmit={formikHandleSubmit} className="space-y-5">
             <div>
               <FormControl
-                formControllConfig={{
+                formControlConfig={{
                   type: "input",
                   config: GetInputFieldConfig(
                     "name",
@@ -47,10 +61,11 @@ export const OrganizationRegisterForm: React.FC = () => {
                 }}
               />
             </div>
+            <input type="hidden" name="role" value={2} />
 
             <div>
               <FormControl
-                formControllConfig={{
+                formControlConfig={{
                   type: "input",
                   config: GetInputFieldConfig(
                     "email",
@@ -64,7 +79,7 @@ export const OrganizationRegisterForm: React.FC = () => {
 
             <div>
               <FormControl
-                formControllConfig={{
+                formControlConfig={{
                   type: "input",
                   config: GetInputFieldConfig(
                     "password",
@@ -78,7 +93,7 @@ export const OrganizationRegisterForm: React.FC = () => {
 
             <div className="pt-2">
               <FormControl
-                formControllConfig={{
+                formControlConfig={{
                   type: "button",
                   config: GetButtonConfig(
                     "submit",

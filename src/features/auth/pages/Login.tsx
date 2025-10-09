@@ -3,9 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import type { RootState, AppDispatch } from "../../../app/store";
 import type { LoginPayload } from "../types/LoginTypes";
-import { login } from "../authSlice";
-import type { User } from "../types/AuthTypes";
 import { LoginForm } from "../components/LoginForm";
+import { loginThunk } from "../authThunk";
 
 export default function Login() {
     const dispatch = useDispatch<AppDispatch>();
@@ -19,12 +18,10 @@ export default function Login() {
         }, [isAuthenticated, navigate]);
     
     const handleLogin = async (values: LoginPayload): Promise<void> => {
-        const user :User = {
-            ...values,
-            id: "",
-        };
-        dispatch(login(user));
-        navigate("/dashboard");
+        const result = await dispatch(loginThunk(values));
+        if(loginThunk.fulfilled.match(result)){
+            navigate("/dashboard");
+        }
     };
 
     return (

@@ -1,5 +1,5 @@
 import { Formik, Form } from "formik";
-import FormControl from "../formControlls/formControlls";
+import FormControl from "../formControls/formControls";
 import type { DynamicFormProps } from "./type";
 
 const DynamicForm = <T extends object>({
@@ -25,7 +25,7 @@ const DynamicForm = <T extends object>({
           <div>
             {formConfig.map((item, index) => (
               <div key={index} className={`my-2 ${item.className || ""}`}>
-                <FormControl formControllConfig={item} />
+                <FormControl formControlConfig={item} />
               </div>
             ))}
           </div>

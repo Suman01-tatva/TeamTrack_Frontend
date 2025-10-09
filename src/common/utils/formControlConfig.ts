@@ -1,20 +1,18 @@
 import type { ButtonProps } from "../components/button/types";
-import type { CheckboxProps } from "../components/formControlls/checkbox/types";
-import type { DatePickerFieldProps } from "../components/formControlls/datePicker/types";
+import type { CheckboxProps } from "../components/formControls/checkbox/types";
+import type { DatePickerFieldProps } from "../components/formControls/datePicker/types";
 import type {
   DropdownFieldProps,
   MultiSelectDropdownProps,
-} from "../components/formControlls/dropdown/types";
-import type { RadioGroupFieldProps } from "../components/formControlls/radioGroup/types";
+} from "../components/formControls/dropdown/types";
+import type { RadioGroupFieldProps } from "../components/formControls/radioGroup/types";
 import type { SearchBarProps } from "../components/searchBar/types";
-import type { TextareaFieldProps } from "../components/formControlls/textArea/types";
-import type { InputFieldProps } from "../components/formControlls/textBox/types";
-import type { ToggleSwitchProps } from "../components/formControlls/toggleSwitch/types";
+import type { TextareaFieldProps } from "../components/formControls/textArea/types";
+import type { InputFieldProps } from "../components/formControls/textBox/types";
+import type { ToggleSwitchProps } from "../components/formControls/toggleSwitch/types";
 import type { FileUploadFieldProps } from "../components/fileUpload/types";
-import type { buttonTypes, inputFieldTypes } from "../../common/const/general";
-import type { Option } from "../../common/const/general";
-
-
+import type { buttonTypes, inputFieldTypes } from "../const/general";
+import type { Option } from "../const/general";
 
 export const GetInputFieldConfig = (
   id: string,
@@ -76,7 +74,7 @@ export const GetButtonConfig = (
   iconOnly?: boolean,
   startIcon?: React.ReactNode,
   endIcon?: React.ReactNode,
-  disabled?: boolean,
+  disabled?: boolean
 ): ButtonProps => {
   const config: ButtonProps = {
     onClick: onClick,
@@ -157,7 +155,7 @@ export const GetCheckBoxConfig = (
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void,
   disabled?: boolean,
   checked?: boolean,
-    labelClassName?: string,
+  labelClassName?: string,
   value?: string | number | boolean
 ): CheckboxProps => {
   return {
@@ -180,7 +178,7 @@ export const GetRadioConfig = (
   disabledOptions?: string[],
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void,
   value?: string,
-  className?: string,
+  className?: string
 ): RadioGroupFieldProps => {
   const config: RadioGroupFieldProps = {
     name: name,
@@ -222,9 +220,9 @@ export const GetTextAreaConfig = (
   value?: string,
   minRows?: number,
   maxRows?: number,
-  onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void,
+  onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
 ): TextareaFieldProps => {
-  const config : TextareaFieldProps = {
+  const config: TextareaFieldProps = {
     id: id,
     name: name,
     label: label,
@@ -235,10 +233,10 @@ export const GetTextAreaConfig = (
     minRows: minRows ?? 3,
     maxRows: maxRows ?? 5,
     placeholder: placeholder,
-    onChange: onChange ?? (() => {}), 
-  }
+    onChange: onChange ?? (() => {}),
+  };
   return config;
-}
+};
 
 export const GetFileUploadConfig = (
   name: string,

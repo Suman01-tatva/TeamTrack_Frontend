@@ -6,7 +6,7 @@ import axios, {
 import Cookie from "js-cookie";
 
 const api = axios.create({
-  baseURL: import.meta.env.API_URL || "http://localhost:5254/api/",
+  baseURL: import.meta.env.API_URL || "http://localhost:5244/api/",
   headers: {
     "Content-Type": "application/json",
   },
