@@ -4,6 +4,7 @@ import axios, {
   type AxiosResponse,
 } from "axios";
 import Cookie from "js-cookie";
+import { toast } from "react-toastify";
 
 const api = axios.create({
   baseURL: import.meta.env.API_URL || "http://localhost:5244/api/",
@@ -24,7 +25,6 @@ api.interceptors.request.use(
   (error) => Promise.reject(error)
 );
 
-
 api.interceptors.response.use(
   (response: AxiosResponse) => {
     return response;
@@ -36,14 +36,17 @@ api.interceptors.response.use(
         typeof data === "object" && data !== null && "message" in data
           ? (data as { message?: string }).message
           : undefined;
+        toast.error(message || error.response.statusText);
       return Promise.reject(
         new Error(`Error: ${message || error.response.statusText}`)
       );
     } else if (error.request) {
+      toast.error("Network Error: Unable to reach the server.");
       return Promise.reject(
         new Error("Network Error: Unable to reach the server.")
       );
     } else {
+      toast.error(`Unexpected Error: ${error.message}`);
       return Promise.reject(new Error(`Unexpected Error: ${error.message}`));
     }
   }

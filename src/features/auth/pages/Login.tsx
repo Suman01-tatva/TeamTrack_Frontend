@@ -25,7 +25,7 @@ export default function Login() {
     };
 
     return (
-        <div className="h-full">
+        <div className="h-full shadow-xl rounded-2xl">
             <LoginForm onSubmit={handleLogin} />
         </div>
     );

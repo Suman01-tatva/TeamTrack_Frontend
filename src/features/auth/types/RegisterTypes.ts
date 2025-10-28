@@ -11,3 +11,11 @@ export interface RegisterUserPayload {
     password: string;
     confirmPassword: string;
 }
+
+export interface RegisterUserFormProps {
+    onSubmit: (values: RegisterUserPayload) => void;
+}
+
+export interface RegisterOrgFormProps {
+    onSubmit: (values: RegisterOrganizationPayload) => void;
+}

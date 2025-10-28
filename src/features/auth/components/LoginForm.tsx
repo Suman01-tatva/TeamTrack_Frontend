@@ -1,7 +1,11 @@
 import "../../../common/components/FormControl/Button/buttonStyle.css";
 import { LoginSchema } from "../schema/loginSchema";
 import type { LoginFormProps } from "../types/LoginTypes";
-import { GetButtonConfig, GetCheckBoxConfig, GetInputFieldConfig } from "../../../common/utils/formControlConfig";
+import {
+  GetButtonConfig,
+  GetCheckBoxConfig,
+  GetInputFieldConfig,
+} from "../../../common/utils/formControlConfig";
 import { Form, Formik } from "formik";
 import FormControl from "../../../common/components/formControls/formControls";
 
@@ -19,10 +23,14 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onSubmit }) => {
   };
 
   return (
-    <div className="w-full max-w-md mx-auto">
+    <div
+      className="w-full max-w-md mx-auto rounded-2xl p-8 shadow-2xl
+    bg-white/10 backdrop-blur-md border border-white/20
+    text-white  hover:border-white/60 transition-border duration-300"
+    >
       <div className="mb-8 text-center">
-        <h2 className="text-3xl font-bold text-gray-900 mb-2">Welcome Back</h2>
-        <p className="text-gray-600">Sign in to your account to continue</p>
+        <h2 className="text-3xl font-bold text-white mb-2">Welcome Back</h2>
+        <p className="text-gray-400">Sign in to your account to continue</p>
       </div>
 
       <Formik
@@ -36,7 +44,12 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onSubmit }) => {
               <FormControl
                 formControlConfig={{
                   type: "input",
-                  config: GetInputFieldConfig("email", "email", "email", "Email Address")
+                  config: GetInputFieldConfig(
+                    "email",
+                    "email",
+                    "email",
+                    "Email Address"
+                  ),
                 }}
               />
             </div>
@@ -45,7 +58,12 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onSubmit }) => {
               <FormControl
                 formControlConfig={{
                   type: "input",
-                  config: GetInputFieldConfig("password", "password", "password", "Password")
+                  config: GetInputFieldConfig(
+                    "password",
+                    "password",
+                    "password",
+                    "Password"
+                  ),
                 }}
               />
             </div>
@@ -55,7 +73,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onSubmit }) => {
                 <FormControl
                   formControlConfig={{
                     type: "checkbox",
-                    config: GetCheckBoxConfig("rememberMe", "Remember Me")
+                    config: GetCheckBoxConfig("rememberMe", "Remember Me"),
                   }}
                 />
               </div>
@@ -63,7 +81,10 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onSubmit }) => {
                 <FormControl
                   formControlConfig={{
                     type: "checkbox",
-                    config: GetCheckBoxConfig("isOrganization", "Organization Account")
+                    config: GetCheckBoxConfig(
+                      "isOrganization",
+                      "Organization Account"
+                    ),
                   }}
                 />
               </div>
@@ -72,7 +93,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onSubmit }) => {
             <div className="text-right">
               <a
                 href="/forgot-password"
-                className="text-sm font-medium text-blue-600 hover:text-blue-500 transition-colors"
+                className="text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors"
               >
                 Forgot Password?
               </a>
@@ -82,7 +103,13 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onSubmit }) => {
               <FormControl
                 formControlConfig={{
                   type: "button",
-                  config: GetButtonConfig("submit", "btn-primary w-full py-3 text-base font-semibold", "Sign In", "contained", true)
+                  config: GetButtonConfig(
+                    "submit",
+                    "btn-primary w-full py-3 text-base font-semibold bg-gray-800 hover:bg-gray-600 text-white rounded-xl transition-all",
+                    "Sign In",
+                    "contained",
+                    true
+                  ),
                 }}
               />
             </div>
@@ -96,7 +123,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onSubmit }) => {
             <div className="w-full border-t border-gray-300"></div>
           </div>
           <div className="relative flex justify-center text-sm">
-            <span className="px-4 bg-white text-gray-500 font-medium">
+            <span className="px-4 bg-gray-900 text-gray-400 font-medium">
               Or continue with
             </span>
           </div>
@@ -106,7 +133,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onSubmit }) => {
       <div>
         <button
           type="button"
-          className="w-full flex items-center justify-center px-4 py-3 border-2 border-gray-300 rounded-lg hover:bg-gray-50 hover:border-gray-400 transition-all duration-200 shadow-sm hover:shadow"
+          className="w-full flex items-center justify-center px-4 py-3 border-2 border-gray-700 bg-gray-900 rounded-lg hover:bg-gray-800 transition-all duration-200 shadow-sm hover:shadow-md"
         >
           <svg className="w-5 h-5" viewBox="0 0 24 24">
             <path
@@ -126,32 +153,31 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onSubmit }) => {
               d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
             />
           </svg>
-          <span className="ml-3 text-sm font-semibold text-gray-700">
+          <span className="ml-3 text-sm font-semibold text-gray-200">
             Continue with Google
           </span>
         </button>
       </div>
 
       <div className="mt-8 text-center">
-        <p className="text-gray-600 mb-3">Don't have an account?</p>
+        <p className="text-gray-400 mb-3">Don't have an account?</p>
         <div className="flex items-center justify-center gap-2 text-sm">
-          <span className="text-gray-600">Register as</span>
+          <span className="text-gray-400">Register as</span>
           <a
             href="/org-register"
-            className="font-semibold text-blue-600 hover:text-blue-700 hover:underline transition-colors"
+            className="font-semibold text-blue-400 hover:text-blue-300 hover:underline transition-colors"
           >
             Organization
           </a>
-          <span className="text-gray-400">|</span>
+          <span className="text-gray-600">|</span>
           <a
             href="/user-register"
-            className="font-semibold text-blue-600 hover:text-blue-700 hover:underline transition-colors"
+            className="font-semibold text-blue-400 hover:text-blue-300 hover:underline transition-colors"
           >
             Individual User
           </a>
         </div>
       </div>
-
     </div>
   );
-}
+};

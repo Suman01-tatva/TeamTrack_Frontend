@@ -22,6 +22,7 @@
     "dayjs": "^1.11.18",
     "formik": "^2.4.6",
     "js-cookie": "^3.0.5",
+    "lucide-react": "^0.545.0",
     "react": "^19.1.1",
     "react-datepicker": "^8.7.0",
     "react-dom": "^19.1.1",
@@ -30,6 +31,7 @@
     "react-redux": "^9.2.0",
     "react-router": "^7.9.1",
     "react-router-dom": "^7.9.1",
+    "react-toastify": "^11.0.5",
     "yup": "^1.7.1"
   },
   "devDependencies": {

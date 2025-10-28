@@ -1,6 +1,7 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import type { AuthState, User } from "./types/AuthTypes";
-import { loginThunk } from "./authThunk";
+import { loginThunk, logoutAllThunk } from "./authThunk";
+import Cookies from "js-cookie";
 
 const initialState: AuthState = {
   isAuthenticated: localStorage.getItem("isAuthenticated") === "true" || false,
@@ -20,6 +21,8 @@ const authSlice = createSlice({
       state.isAuthenticated = false;
       localStorage.removeItem("user");
       localStorage.removeItem("isAuthenticated");
+      Cookies.remove("access_token");
+      Cookies.remove("token");
     },
     loadUser: (state) => {
       const stored = localStorage.getItem("user");
@@ -40,6 +43,13 @@ const authSlice = createSlice({
       .addCase(loginThunk.rejected, (state, action) => {
         state.error = (action.payload as string) || "Login failed";
         state.isAuthenticated = false;
+      })
+      .addCase(logoutAllThunk.fulfilled, (state) => {
+        state.user = null;
+        state.isAuthenticated = false;
+      })
+      .addCase(logoutAllThunk.rejected, (state, action) => {
+        state.error = (action.payload as string) || "Logout failed";
       });
   },
 });

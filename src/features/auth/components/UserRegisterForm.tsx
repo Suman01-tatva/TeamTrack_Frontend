@@ -6,8 +6,9 @@ import {
   GetInputFieldConfig,
 } from "../../../common/utils/formControlConfig";
 import FormControl from "../../../common/components/formControls/formControls";
+import type { RegisterUserFormProps } from "../types/RegisterTypes";
 
-export const UserRegisterForm: React.FC = () => {
+export const UserRegisterForm: React.FC<RegisterUserFormProps> = ({ onSubmit }) => {
   const initialValues = {
     name: "",
     email: "",
@@ -17,20 +18,20 @@ export const UserRegisterForm: React.FC = () => {
 
   const handleSubmit = (values: typeof initialValues) => {
     console.log("User Register Submitted:", values);
-    // TODO: call API to save user
+    onSubmit(values);
   };
 
   return (
-    <div className="w-full max-w-md mx-auto">
-      {/* Header */}
+    <div className="w-full max-w-md mx-auto rounded-2xl p-8 shadow-2xl
+    bg-white/10 backdrop-blur-md border border-white/20
+    text-white  hover:border-white/60 transition-border duration-300">
       <div className="mb-8 text-center">
-        <h2 className="text-3xl font-bold text-gray-900 mb-2">
+        <h2 className="text-3xl font-bold text-white mb-2">
           Create Your Account
         </h2>
-        <p className="text-gray-600">Sign up to start managing your projects</p>
+        <p className="text-gray-400">Sign up to start managing your projects</p>
       </div>
 
-      {/* Formik Form */}
       <Formik
         initialValues={initialValues}
         validationSchema={UserRegisterSchema}
@@ -114,7 +115,7 @@ export const UserRegisterForm: React.FC = () => {
             <div className="w-full border-t border-gray-300"></div>
           </div>
           <div className="relative flex justify-center text-sm">
-            <span className="px-4 bg-white text-gray-500 font-medium">
+            <span className="px-4 bg-gray-900 text-gray-400 font-medium">
               Already have an account?
             </span>
           </div>
@@ -125,7 +126,7 @@ export const UserRegisterForm: React.FC = () => {
       <div className="text-center">
         <a
           href="/login"
-          className="text-blue-600 font-semibold hover:text-blue-700 hover:underline transition-colors"
+          className="font-semibold text-blue-400 hover:text-blue-300 hover:underline transition-colors"
         >
           Back to Login
         </a>

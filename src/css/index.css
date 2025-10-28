@@ -3,16 +3,22 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  color: rgba(255, 255, 255, 0.87);
+  /* color: #1a2333; */
+  background-color: #1a2333;
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   overflow-x: hidden;
 }
 
+#root{
+  background-color: #1a2333;
+  color: #99a1b0;
+}
+
 @media (prefers-color-scheme: light) {
   body {
-    background-color: #ffffff;
-    color: #213547;
+    background-color: #1a2333;
+    color: #99a1b0;
   }
 }

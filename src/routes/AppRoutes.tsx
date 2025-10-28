@@ -6,8 +6,8 @@ import ProtectedRoute from './ProtectedRoute'
 import Home from '../features/home/Home'
 import PageNotFound from '../features/home/PageNotFound'
 import RegisterOrganization from '../features/auth/pages/RegisterOrganization'
-import { UserRegisterForm } from '../features/auth/components/UserRegisterForm'
 import Dashboard from '../features/home/Dashboard'
+import RegisterUser from '../features/auth/pages/RegisterUser'
 
 function AppRoutes() {
     return (
@@ -15,7 +15,7 @@ function AppRoutes() {
             <Route element={<AuthLayout />}>
                 <Route path="/login" element={<Login />} />
                 <Route path="/org-register" element={<RegisterOrganization />} />
-                <Route path="/user-register" element={<UserRegisterForm />} />
+                <Route path="/user-register" element={<RegisterUser />} />
             </Route>
             <Route element={<ProtectedRoute />}>
                 <Route path="/dashboard" element={<Dashboard />} />

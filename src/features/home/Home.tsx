@@ -1,19 +1,19 @@
 import { useNavigate } from "react-router-dom";
-// import { useSelector } from "react-redux";
-// import { type RootState } from "../../app/store";
-// import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { type RootState } from "../../app/store";
+import { useEffect } from "react";
 
 export default function Home() {
     const navigate = useNavigate();
-    // const isAuthenticated = useSelector(
-    //     (state: RootState) => state.auth.isAuthenticated
-    // );
+    const isAuthenticated = useSelector(
+        (state: RootState) => state.auth.isAuthenticated
+    );
 
-    // useEffect(() => {
-    //     if (isAuthenticated) {
-    //         navigate("/dashboard");
-    //     }
-    // }, [isAuthenticated, navigate]);
+    useEffect(() => {
+        if (isAuthenticated) {
+            navigate("/dashboard");
+        }
+    }, [isAuthenticated, navigate]);
     return (
         <div className="min-h-screen flex flex-col justify-center items-center">
             <h1 className="text-6xl font-bold">Welcome to My Project</h1>

@@ -31,3 +31,8 @@ export const registerUser = (
   );
   return response;
 };
+
+export const logoutFromAll = ()  => {
+  const response = apiConfig.post<ApiResponse<null>>("/auth/logout-all",{});
+  return response;
+}
