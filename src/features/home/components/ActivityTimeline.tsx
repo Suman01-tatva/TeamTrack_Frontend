@@ -8,7 +8,7 @@ export default function ActivityTimeline({ activities }: ActivityTimelineProps) 
   return (
     <div className="mt-6 bg-gray-800 rounded-xl border border-gray-700 shadow-sm">
       <div className="p-6 border-b border-gray-700">
-        <h2 className="text-xl font-bold text-blue-300">Recent Activity</h2>
+        <h2 className="text-xl font-bold text-white">Recent Activity</h2>
       </div>
       <div className="p-6 space-y-4">
         {activities.map((activity, idx) => (

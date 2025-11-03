@@ -23,7 +23,7 @@ export default function RecentTasks({ tasks }: RecentTasksProps) {
   return (
     <div className="bg-gray-800 rounded-xl border border-gray-700 shadow-sm">
       <div className="p-6 border-b border-gray-700">
-        <h2 className="text-xl font-bold text-blue-300">Recent Tasks</h2>
+        <h2 className="text-xl font-bold text-white">Recent Tasks</h2>
       </div>
       <div className="p-6 space-y-3">
         {tasks.map((task) => (

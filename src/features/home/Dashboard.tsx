@@ -6,7 +6,6 @@ import {
   FaUsers,
   FaFolder
 } from 'react-icons/fa';
-import Navbar from './components/Navbar';
 import ActiveProjects from './components/ActiveProjects';
 import RecentTasks from './components/RecentTasks';
 import ActivityTimeline from './components/ActivityTimeline';
@@ -42,22 +41,19 @@ export default function TeamTrackDashboard() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-gray-100">
-      {/* Navbar */}
-      <Navbar />
-
+    <div className="min-h-screen bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950 text-gray-100">
       {/* Main Content */}
       <main className="mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
         <div className="mb-8">
           <div className="flex flex-col sm:flex-row sm:items-center sm: justify-between">
             <div>
-              <h1 className="text-3xl font-bold text-blue-300">Dashboard Overview</h1>
+              <h1 className="text-3xl font-bold text-white">Dashboard Overview</h1>
               <p className="mt-1 text-gray-400">Welcome back! Here's what's happening today.</p>
             </div>
-            <button className="mt-4 sm:mt-0 flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-3 rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all shadow-md hover:shadow-lg">
+             <button className="mt-4 sm:mt-0 flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-xl hover:shadow-lg hover:shadow-blue-500/30 transition-all duration-300 font-medium">
               <FaPlus className="w-5 h-5" />
-              <span className="font-medium">New Project</span>
+              <span>New Project</span>
             </button>
           </div>
         </div>
@@ -68,7 +64,7 @@ export default function TeamTrackDashboard() {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm font-medium text-gray-400">{stat.label}</p>
-                  <p className="mt-2 text-3xl font-bold text-blue-400">{stat.value}</p>
+                  <p className="mt-2 text-3xl font-bold text-white">{stat.value}</p>
                   <p className="mt-2 text-sm text-green-400 font-medium">{stat.trend} this week</p>
                 </div>
                 <div className="w-12 h-12 bg-blue-900 bg-opacity-20 rounded-lg flex items-center justify-center">
@@ -81,10 +77,8 @@ export default function TeamTrackDashboard() {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <ActiveProjects projects={projects}/>
-
           <RecentTasks tasks={recentTasks}/>
         </div>
-
           <ActivityTimeline activities={activities}/>
       </main>
     </div>
