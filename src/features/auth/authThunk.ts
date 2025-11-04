@@ -19,7 +19,7 @@ export const loginThunk = createAsyncThunk<
     if (!data.isSuccess) {
       return rejectWithValue(data.message || "Login failed");
     }
-
+    localStorage.setItem("isOrganization", (data.data?.isOrganization ?? false).toString());
     Cookie.set("token", data.data?.token as string, {
       expires: LoginPayload.rememberMe ? 30 : 7,
       secure: true,

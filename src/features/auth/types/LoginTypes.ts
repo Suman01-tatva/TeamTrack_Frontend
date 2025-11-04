@@ -14,4 +14,5 @@ export interface LoginFormProps {
 export interface LoginResponse {
   token: string;
   user: User;
+  isOrganization: boolean;
 }

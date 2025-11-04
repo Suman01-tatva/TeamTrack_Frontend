@@ -39,7 +39,7 @@ export interface CustomButtonProps extends ButtonProps {
   to?: string;
 }
 
-export type formConfigType =  "input" | "checkbox" | "toggle" | "date"| "dropdown"| "multiselect"| "button"| "radio"| "textarea" | "autocomplete";
+export type formConfigType =  "input" | "checkbox" | "toggle" | "date"| "dropdown"| "multiselect"| "button"| "radio"| "textarea";
 export type formConfigPropsTypes = InputFieldProps| CheckboxProps| ToggleSwitchProps| DatePickerFieldProps| DropdownFieldProps| MultiSelectDropdownProps| ButtonProps| RadioGroupFieldProps| TextareaFieldProps;
 
 export interface FormControlConfig {

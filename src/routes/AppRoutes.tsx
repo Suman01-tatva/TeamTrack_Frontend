@@ -9,6 +9,7 @@ import RegisterOrganization from "../features/auth/pages/RegisterOrganization";
 import Dashboard from "../features/home/Dashboard";
 import RegisterUser from "../features/auth/pages/RegisterUser";
 import MainLayout from "../layout/MainLayout";
+import ProjectPage from "../features/projects/pages/Projects";
 
 function AppRoutes() {
   return (
@@ -21,6 +22,7 @@ function AppRoutes() {
       <Route element={<ProtectedRoute />}>
         <Route element={<MainLayout />}>
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/projects" element={<ProjectPage />} />
         </Route>
       </Route>
       <Route path="/" element={<Home />} />
